@@ -13,12 +13,13 @@ namespace Bookshelf.Models
         public int ID { get; set; }
         [MinLength(2),MaxLength(50)]
         public string Title { get; set; }
-        public DateTime PublishedDate { get; set; }
+        [Display(Name ="Published Date")]
+        public DateTime PublishedDate { get; set; } 
         [MaxLength(500)]
         public string Description { get; set; }
         public string ISBN { get; set;}
 
-        [ForeignKey("Category")]
+        [ForeignKey("Category"), Display(Name ="Category")]
         public int CategoryID { get; set; }
         public virtual Category Category { get; set; }
 
