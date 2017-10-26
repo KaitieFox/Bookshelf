@@ -4,12 +4,34 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="jumbotron">
+    <h1>the BookShelf</h1>
+    <p>bringing you lovely books</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Who are we?</a></p>
+</div>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+
+<div class="row">
+@foreach (var item in Model)
+{
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <div class="caption">
+                <h3>@Html.DisplayFor(modelItem => item.Title)</h3>                                
+                <p>@Html.DisplayNameFor(model => model.PublishedDate): @Html.DisplayFor(modelItem => item.PublishedDate)</p>
+                <p>@Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-primary", role = "button" })</p>
+                @*<p><a href=# class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>*@
+            </div>
+        </div>
+    </div>
+}
+</div>
+
+
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Category.Name)
@@ -54,4 +76,4 @@
     </tr>
 }
 
-</table>
+</table>*@
