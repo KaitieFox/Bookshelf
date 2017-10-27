@@ -19,9 +19,11 @@ namespace Bookshelf.Models
         public string Description { get; set; }
         public string ISBN { get; set;}
 
-        [ForeignKey("Category"), Display(Name ="Category")]
-        public int CategoryID { get; set; }
-        public virtual Category Category { get; set; }
+        [ForeignKey("Category"), Display(Name ="Category")] //foreignkey "Must be spelled same"
+        public int CategoryID { get; set; } //connection point. Connecting on unique ID in category class.
+        public virtual Category Category { get; set; } //This is a category object, 
+        //which indicates we are navigating to the other class.
+
 
 
     }

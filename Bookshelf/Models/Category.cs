@@ -12,7 +12,11 @@ namespace Bookshelf.Models
         public int ID { get; set; }
         [Display(Name="Category")]
         public string Name { get; set; }
-        public virtual ICollection<Book> Books { get; set; } 
+
+        public virtual ICollection<Book> Books { get; set; } //make such Plural
+        //You have Model BOOK. Because MANY books in category, you put COLLECTION here.
+        //this is how we set up a one to many relationship
+
 
     }
 }
